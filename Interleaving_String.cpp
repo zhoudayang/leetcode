@@ -33,7 +33,7 @@ public:
                 //需要到达的下一点
                 char next = s3[row+col];
                 if(row<len1 &&s1[row]==next)//加上１防止０的影响
-                    if(visited.insert((row+1)*cols+col).second)
+                    if(visited.insert((row+1)*cols+col).second)//insert返回值　std::pair<iterator, bool>　分别对应迭代器以及ｓｅｔ中是否有这个元素
                         q.push(make_pair(row,col-1));
                 if(col<len2&&s2[col]==next)//加上１防止０的影响
                     if(visited.insert(row*cols+col+1).second)
