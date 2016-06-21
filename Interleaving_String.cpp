@@ -50,7 +50,10 @@ int main() {
     return 0;
 }
 /*
-If we expand the two strings s1 and s2 into a chessboard, then this problem can be transferred into a path seeking problem from the top-left corner to the bottom-right corner. The key is, each cell (y, x) in the board corresponds to an interval between y-th character in s1 and x-th character in s2. And adjacent cells are connected with like a grid. A BFS can then be efficiently performed to find the path.
+If we expand the two strings s1 and s2 into a chessboard, 
+then this problem can be transferred into a path seeking problem from the top-left corner to the bottom-right corner.
+The key is, each cell (y, x) in the board corresponds to an interval between y-th character in s1 and x-th character in s2. 
+And adjacent cells are connected with like a grid. A BFS can then be efficiently performed to find the path.
 
 Better to illustrate with an example here:
 
@@ -69,7 +72,10 @@ o--a--o--b--o--c--o
 b     b     b     b
 |     |     |     |
 o--a--o--b--o--c--o
-Each "o" is a cell in the board. We start from the top-left corner, and try to move right or down. If the next char in s3 matches the edge connecting the next cell, then we're able to move. When we hit the bottom-right corner, this means s3 can be represented by interleaving s1 and s2. One possible path for this example is indicated with "x"es below:
+Each "o" is a cell in the board. We start from the top-left corner, and try to move right or down. 
+If the next char in s3 matches the edge connecting the next cell, then we're able to move.
+When we hit the bottom-right corner, this means s3 can be represented by interleaving s1 and s2. 
+One possible path for this example is indicated with "x"es below:
 
 x--a--x--b--o--c--o
 |     |     |     |
@@ -84,7 +90,8 @@ o--a--x--b--x--c--x
 b     b     b     b
 |     |     |     |
 o--a--o--b--o--c--x
-Note if we concatenate the chars on the edges we went along, it's exactly s3. And we went through all the chars in s1 and s2, in order, exactly once.
+Note if we concatenate the chars on the edges we went along, it's exactly s3. 
+And we went through all the chars in s1 and s2, in order, exactly once.
 
 url: https://leetcode.com/discuss/19973/8ms-c-solution-using-bfs-with-explanation
 
