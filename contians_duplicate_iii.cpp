@@ -5,6 +5,7 @@
     如果一直都没有返回，最后返回false，表示找到不到这样的k和t。
     此处找到的数是最可能满足和nums[i]的差值小于或等于t的数，其他数都比这个数大，意味着和nums[i]-t的距离更大,更不可能满足和nums[i]的差值小于或等于t。
  */
+
 class Solution {
 public:
     bool containsNearbyAlmostDuplicate(vector<int> &nums, int k, int t) {
