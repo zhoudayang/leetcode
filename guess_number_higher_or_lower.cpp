@@ -6,25 +6,24 @@ int guess(int num);
 class Solution {
 public:
     int guessNumber(int n) {
-        // first test number n
-        if(guess(n)==0)
-            return n;
         //init left and right
         int l=1,r=n;
-        while(l<r){
-            //注意需要采取这种方式求mid，如果mid=(l+r)/2，容易越界
-            int mid = l+((r-l)>>1);
-            //test mid
-            if(guess(mid)==0)
+        //while l<=r
+        while(l<=r){
+            //mid =l+((r-l)>>1) 而不是 mid=(r+l)/2, 会造成溢出
+            int mid = l +((r-l)>>1);
+            int ret =guess(mid);
+            //found it! return mid
+            if(ret==0)
                 return mid;
-            //less than the number, in the right part
-            else if(guess(mid)==1)
-                l=mid;
-            //bigger than the number, int the left part
-            else if(guess(mid)==-1)
-                r=mid;
+            //the number is bigger,in the right part
+            else if(ret==1)
+                l=mid+1;
+            //the number is smaller,int the left part
+            else 
+                r=mid-1;
         }
-        //not found,return -1
+        //can't find it! 
         return -1;
     }
 };
