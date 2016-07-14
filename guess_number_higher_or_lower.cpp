@@ -24,7 +24,7 @@ public:
             else if(guess(mid)==-1)
                 r=mid;
         }
-        //if left and right meet, return l
-        return l;
+        //not found,return -1
+        return -1;
     }
 };
