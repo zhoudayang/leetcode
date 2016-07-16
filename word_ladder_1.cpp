@@ -74,7 +74,6 @@ private:
 };
 
 int main() {
-  
-
-
+    Solution *s = new Solution();
+    
 }

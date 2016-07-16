@@ -19,6 +19,5 @@ public:
 int main() {
     Solution *s = new Solution();
     cout<<s->getSum(1,2)<<endl;
-
     return 0;
 }
