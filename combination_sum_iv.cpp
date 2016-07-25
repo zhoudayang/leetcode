@@ -8,19 +8,19 @@
 class Solution{
 public:
     int combinationSum4(vector<int>&nums,int target){
-	int size = nums.size();
-	sort(nums.begin(),nums.end());
-	vector<int> dp(target+1,0);
-	for(int i=1;i<dp.size();i++){
-	    for(auto num:nums){
-		if(num>i)
-		    break;
-		if(num==i)
-		    dp[i]+=1;
-		else 
-		    dp[i]+=dp[i-num];
-	    }	
-	}
-	return dp[target];
+		int size = nums.size();
+		sort(nums.begin(),nums.end());
+		vector<int> dp(target+1,0);
+		for(int i=1;i<dp.size();i++){
+		    for(auto num:nums){
+			if(num>i)
+			    break;
+			if(num==i)
+			    dp[i]+=1;
+			else 
+			    dp[i]+=dp[i-num];
+		    }	
+		}
+		return dp[target];
     }
 }
