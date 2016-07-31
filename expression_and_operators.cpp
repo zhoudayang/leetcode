@@ -1,5 +1,5 @@
 // main idea dfs 
-// which need to concern is the plus case 
+// which need to concern is the multiply case 
 
 class Solution {
 public:
