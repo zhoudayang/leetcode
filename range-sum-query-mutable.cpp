@@ -16,35 +16,43 @@ public:
 	void update(int pos, int val) {
 		pos += size;
 		nodes[pos] = val;
+		//loop till go to root node 
 		while(pos>1)
 		{
 			int left = pos;
 			int right = pos;
+			//get right pos of left brother and right brother 
 			if (pos % 2 == 0)
 				++right;
 			else
 				--left;
+			//update range sum of parent node  
 			nodes[pos / 2] = nodes[left] + nodes[right];
+			//go to upper level 
 			pos >>= 1;
 		}
 	}
 
 	int sumRange(int l, int r) {
+		//get leaf pos 
 		l += size;
 		r += size;
 		int sum = 0;
 		while (l <= r)
 		{
+			//l is the right child of parent node, add nodes[l] to sum and set l to point to the right of parent on the upper level.
 			if (l % 2 == 1)
 			{
 				sum += nodes[l];
 				++l;
 			}
+			//r is the left child of parent node, add nodes[r] to sum and set r to point to left of parent on the upper level 
 			if (r % 2 == 0)
 			{
 				sum += nodes[r];
 				--r;
 			}
+			//both l and r go to higher level
 			l >>= 1;
 			r >>= 1;
 		}
